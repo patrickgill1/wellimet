@@ -539,7 +539,6 @@
   .service-card:hover .service-link { color: var(--yellow); }
 
   .service-icon {
-    font-size: 28px;
     width: 60px;
     height: 60px;
     display: flex;
@@ -549,8 +548,18 @@
     border-radius: 8px;
     margin-bottom: 28px;
     transition: all 0.3s;
-    color: var(--black);
   }
+  .service-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--black);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s;
+  }
+  .service-card:hover .service-icon svg { stroke: var(--yellow); }
 
   .service-title {
     font-family: var(--serif);
@@ -1293,37 +1302,37 @@
 
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">🧠</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 5c-1.2-1.6-3.3-2.5-5.3-2C4 3.6 2 6 2 8.7c0 3.3 3.2 6 7.4 10l2.6 2.3 2.6-2.3C18.8 14.7 22 12 22 8.7 22 6 20 3.6 17.3 3c-2-.5-4.1.4-5.3 2z"/></svg></div>
       <h3 class="service-title">Anxiety & Depression</h3>
       <p class="service-desc">Personalized assessment and medication management for generalized anxiety, panic disorder, major depression, and treatment-resistant cases.</p>
       <a href="appointments" class="service-link">Learn more</a>
     </div>
     <div class="service-card">
-      <div class="service-icon">⚡</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
       <h3 class="service-title">ADHD Management</h3>
       <p class="service-desc">Comprehensive evaluation and stimulant/non-stimulant medication protocols for adults and children struggling with attention and executive function.</p>
       <a href="appointments" class="service-link">Learn more</a>
     </div>
     <div class="service-card">
-      <div class="service-icon">🌊</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><polyline points="3 12 7 4 11 16 15 8 18 12 21 12"/></svg></div>
       <h3 class="service-title">Mood Disorders</h3>
       <p class="service-desc">Expert management of bipolar disorder, cyclothymia, and related mood spectrum conditions with evidence-based medication strategies.</p>
       <a href="appointments" class="service-link">Learn more</a>
     </div>
     <div class="service-card">
-      <div class="service-icon">🛡️</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <h3 class="service-title">PTSD & Trauma</h3>
       <p class="service-desc">Trauma-informed psychiatric care with targeted pharmacotherapy to support healing and daily functioning alongside your therapy team.</p>
       <a href="appointments" class="service-link">Learn more</a>
     </div>
     <div class="service-card">
-      <div class="service-icon">💊</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="7" rx="3.5"/><line x1="12" y1="11" x2="12" y2="18"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
       <h3 class="service-title">Medication Management</h3>
       <p class="service-desc">Ongoing prescription management, medication reviews, dosage adjustments, and coordination with your primary care and therapy providers.</p>
       <a href="appointments" class="service-link">Learn more</a>
     </div>
     <div class="service-card">
-      <div class="service-icon">📱</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
       <h3 class="service-title">Telehealth Visits</h3>
       <p class="service-desc">Secure, convenient video appointments available across Utah and Nevada — and expanding soon to California, Montana, Idaho, Arizona, and Washington. No commute, no waiting rooms. Same quality care from the comfort of home.</p>
       <a href="appointments" class="service-link">Book now</a>

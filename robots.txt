@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://well-i-am.net/sitemap.xml

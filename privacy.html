@@ -7,7 +7,7 @@
 <link rel="shortcut icon" href="/favicon.svg">
 <title>Privacy Policy — Well-I-AM Mental Health</title>
 <meta name="description" content="Privacy Policy for Well-I-AM Mental Health, Lori Jardine PMHNP-BC. Learn how we collect, use, and protect your personal information.">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=2">
 <style>
   .policy-content {
     max-width: 800px;
@@ -126,7 +126,7 @@
   <ul>
     <li><strong>Well-I-AM Mental Health</strong></li>
     <li>St. George, Utah</li>
-    <li>Phone: 435-500-6529</li>
+    <li>Phone: 435-703-5616</li>
     <li>Email: <a href="mailto:lori.jardine@well-i-am.net">lori.jardine@well-i-am.net</a></li>
   </ul>
 </div>
@@ -173,7 +173,7 @@
       </div>
       <div class="footer-contact-item">
         <span class="contact-icon">📞</span>
-        <div class="contact-text"><strong>Phone</strong>435-500-6529</div>
+        <div class="contact-text"><strong>Phone</strong>435-703-5616</div>
       </div>
       <div class="footer-contact-item">
         <span class="contact-icon">🕐</span>
@@ -181,7 +181,7 @@
       </div>
       <div class="footer-contact-item">
         <span class="contact-icon">✅</span>
-        <div class="contact-text"><strong>Insurance</strong>Medicare &amp; Aetna accepted</div>
+        <div class="contact-text"><strong>Insurance</strong>Aetna, Medicaid, Medicare, UHC, Optum, Cigna Behavioral Health via Evernorth, Imperial Health Plan, SelectHealth, &amp; University of Utah Health Plans accepted</div>
       </div>
       <div class="crisis-line">
         <p>🚨 In crisis? Call or text <strong>988</strong> — National Crisis &amp; Suicide Lifeline, available 24/7.</p>
@@ -210,5 +210,27 @@
   }
 </script>
 
+<!-- INSURANCE ANNOUNCEMENT BANNER -->
+<div class="ins-banner" id="insBanner" role="region" aria-label="Accepted insurance notice">
+  <span class="ins-banner-pulse" aria-hidden="true"></span>
+  <p class="ins-banner-text"><span class="ins-banner-label">Now Accepting</span>Aetna · Medicaid · Medicare · UHC · Optum · Cigna · Imperial Health Plan · <strong>SelectHealth</strong> · <strong>University of Utah Health Plans</strong></p>
+  <a href="appointments" class="ins-banner-cta">Book</a>
+  <button class="ins-banner-close" id="insBannerClose" type="button" aria-label="Dismiss insurance notice">&times;</button>
+</div>
+<script>
+(function () {
+  var b = document.getElementById('insBanner');
+  if (!b) return;
+  var KEY = 'wia_ins_banner_v1';
+  try { if (localStorage.getItem(KEY)) { b.parentNode.removeChild(b); return; } } catch (e) {}
+  setTimeout(function () { b.classList.add('is-visible'); }, 900);
+  var c = document.getElementById('insBannerClose');
+  if (c) c.addEventListener('click', function () {
+    b.classList.remove('is-visible');
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    setTimeout(function () { if (b.parentNode) b.parentNode.removeChild(b); }, 500);
+  });
+})();
+</script>
 </body>
 </html>

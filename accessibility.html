@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://well-i-am.net/images/logo.png">
 <meta property="og:site_name" content="Well-I-AM Mental Health">
 <meta property="og:locale" content="en_US">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=2">
 <style>
   .policy-content {
     max-width: 800px;
@@ -101,12 +101,12 @@
   <p>Our website integrates third-party services, including the SimplePractice scheduling widget and Google Fonts. While we strive to ensure all content is accessible, we cannot guarantee the accessibility of third-party content. SimplePractice maintains its own accessibility practices for the client portal and scheduling tools.</p>
 
   <h2>Bilingual Services</h2>
-  <p>We are proud to offer services in both English and Spanish. <span lang="es">Se habla español.</span> If you need assistance in Spanish, please contact us by phone at 435-500-6529 or by email.</p>
+  <p>We are proud to offer services in both English and Spanish. <span lang="es">Se habla español.</span> If you need assistance in Spanish, please contact us by phone at 435-703-5616 or by email.</p>
 
   <h2>Alternative Ways to Access Our Services</h2>
   <p>If you encounter any barriers using our website, we are happy to assist you through alternative means:</p>
   <ul>
-    <li><strong>Phone:</strong> Call us at 435-500-6529 to schedule an appointment, ask questions, or request information.</li>
+    <li><strong>Phone:</strong> Call us at 435-703-5616 to schedule an appointment, ask questions, or request information.</li>
     <li><strong>Email:</strong> Contact us at <a href="mailto:lori.jardine@well-i-am.net">lori.jardine@well-i-am.net</a> for any assistance.</li>
     <li><strong>In person:</strong> Visit our office at 393 E Riverside Drive, Suite 102, St. George, UT 84790 (available Fridays).</li>
   </ul>
@@ -114,7 +114,7 @@
   <h2>Feedback</h2>
   <p>We welcome your feedback on the accessibility of this website. If you encounter accessibility barriers or have suggestions for improvement, please contact us:</p>
   <ul>
-    <li>Phone: 435-500-6529</li>
+    <li>Phone: 435-703-5616</li>
     <li>Email: <a href="mailto:lori.jardine@well-i-am.net">lori.jardine@well-i-am.net</a></li>
   </ul>
   <p>We take accessibility concerns seriously and will make reasonable efforts to address reported issues promptly.</p>
@@ -162,7 +162,7 @@
       </div>
       <div class="footer-contact-item">
         <span class="contact-icon">📞</span>
-        <div class="contact-text"><strong>Phone</strong>435-500-6529</div>
+        <div class="contact-text"><strong>Phone</strong>435-703-5616</div>
       </div>
       <div class="footer-contact-item">
         <span class="contact-icon">🕐</span>
@@ -170,7 +170,7 @@
       </div>
       <div class="footer-contact-item">
         <span class="contact-icon">✅</span>
-        <div class="contact-text"><strong>Insurance</strong>Medicare &amp; Aetna accepted</div>
+        <div class="contact-text"><strong>Insurance</strong>Aetna, Medicaid, Medicare, UHC, Optum, Cigna Behavioral Health via Evernorth, Imperial Health Plan, SelectHealth, &amp; University of Utah Health Plans accepted</div>
       </div>
       <div class="crisis-line">
         <p>🚨 In crisis? Call or text <strong>988</strong> — National Crisis &amp; Suicide Lifeline, available 24/7.</p>
@@ -199,5 +199,27 @@
   }
 </script>
 
+<!-- INSURANCE ANNOUNCEMENT BANNER -->
+<div class="ins-banner" id="insBanner" role="region" aria-label="Accepted insurance notice">
+  <span class="ins-banner-pulse" aria-hidden="true"></span>
+  <p class="ins-banner-text"><span class="ins-banner-label">Now Accepting</span>Aetna · Medicaid · Medicare · UHC · Optum · Cigna · Imperial Health Plan · <strong>SelectHealth</strong> · <strong>University of Utah Health Plans</strong></p>
+  <a href="appointments" class="ins-banner-cta">Book</a>
+  <button class="ins-banner-close" id="insBannerClose" type="button" aria-label="Dismiss insurance notice">&times;</button>
+</div>
+<script>
+(function () {
+  var b = document.getElementById('insBanner');
+  if (!b) return;
+  var KEY = 'wia_ins_banner_v1';
+  try { if (localStorage.getItem(KEY)) { b.parentNode.removeChild(b); return; } } catch (e) {}
+  setTimeout(function () { b.classList.add('is-visible'); }, 900);
+  var c = document.getElementById('insBannerClose');
+  if (c) c.addEventListener('click', function () {
+    b.classList.remove('is-visible');
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    setTimeout(function () { if (b.parentNode) b.parentNode.removeChild(b); }, 500);
+  });
+})();
+</script>
 </body>
 </html>

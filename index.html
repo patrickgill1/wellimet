@@ -1218,6 +1218,30 @@
     display: none;
   }
 
+  /* ── STATES / WHERE WE PRACTICE ── */
+  .states-band { background: var(--black); padding: 84px 64px; position: relative; overflow: hidden; text-align: center; }
+  .states-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(232,242,42,0.07) 0%, transparent 60%); pointer-events: none; }
+  .states-inner { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; }
+  .states-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 16px; }
+  .states-eyebrow::before, .states-eyebrow::after { content: ''; width: 28px; height: 2px; background: var(--yellow); }
+  .states-title { font-family: var(--serif); font-size: clamp(28px, 3.4vw, 44px); font-weight: 700; line-height: 1.1; color: var(--white); margin-bottom: 14px; }
+  .states-title em { font-style: italic; color: var(--yellow); }
+  .states-sub { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.6); max-width: 580px; margin: 0 auto 44px; }
+  .states-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 30px; }
+  .state-tile { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 28px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(255,255,255,0.02); transition: transform 0.25s, border-color 0.25s, background 0.25s; }
+  .state-tile:hover { border-color: rgba(232,242,42,0.5); background: rgba(232,242,42,0.05); transform: translateY(-3px); }
+  .state-abbr { font-family: var(--display); font-size: 52px; line-height: 1; letter-spacing: 0.03em; color: var(--yellow); }
+  .state-name { font-size: 15px; font-weight: 600; color: var(--white); }
+  .state-mode { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .states-soon { font-size: 13px; letter-spacing: 0.02em; color: rgba(255,255,255,0.45); }
+  .states-soon strong { color: rgba(255,255,255,0.72); font-weight: 600; }
+  @media (max-width: 720px) {
+    .states-band { padding: 60px 22px; }
+    .states-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .state-abbr { font-size: 44px; }
+    .states-eyebrow::before, .states-eyebrow::after { width: 18px; }
+  }
+
   /* ── HOURS / AVAILABILITY HIGHLIGHT ── */
   .hours-highlight { background: var(--charcoal); padding: 64px; border-top: 1px solid rgba(232,242,42,0.12); border-bottom: 1px solid rgba(232,242,42,0.12); }
   .hours-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: center; }
@@ -1434,8 +1458,8 @@
       </div>
       <div class="trust-sep"></div>
       <div class="trust-item">
-        <span class="trust-num">Telehealth</span>
-        <span class="trust-label">Available Statewide</span>
+        <span class="trust-num">4 States</span>
+        <span class="trust-label">Telehealth Access</span>
       </div>
     </div>
   </div>
@@ -1471,6 +1495,22 @@
     <span class="marquee-item">Same-Week Appointments <span class="marquee-dot"></span></span>
   </div>
 </div>
+
+<!-- STATES / WHERE WE PRACTICE -->
+<section class="states-band" id="states">
+  <div class="states-inner">
+    <span class="states-eyebrow">Where We Practice</span>
+    <h2 class="states-title">Now caring for patients in <em>four states</em></h2>
+    <p class="states-sub">In person in St. George, Utah — and by secure, HIPAA-compliant telehealth across Utah, Nevada, Idaho &amp; Arizona.</p>
+    <div class="states-grid">
+      <div class="state-tile"><span class="state-abbr">UT</span><span class="state-name">Utah</span><span class="state-mode">In person + Telehealth</span></div>
+      <div class="state-tile"><span class="state-abbr">NV</span><span class="state-name">Nevada</span><span class="state-mode">Telehealth</span></div>
+      <div class="state-tile"><span class="state-abbr">ID</span><span class="state-name">Idaho</span><span class="state-mode">Telehealth</span></div>
+      <div class="state-tile"><span class="state-abbr">AZ</span><span class="state-name">Arizona</span><span class="state-mode">Telehealth</span></div>
+    </div>
+    <p class="states-soon">Licensure coming soon in <strong>California</strong>, <strong>Montana</strong> &amp; <strong>Washington</strong></p>
+  </div>
+</section>
 
 <!-- HOURS / AVAILABILITY HIGHLIGHT -->
 <section class="hours-highlight" id="hours">

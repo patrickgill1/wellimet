@@ -67,7 +67,7 @@
 <style>
   /* Contact split layout */
   .contact-split {
-    display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
     padding-top: 80px;
   }
   .contact-info-col {
@@ -79,20 +79,16 @@
   .contact-info-col .section-label::before { background: rgba(255,255,255,0.35); }
   .contact-info-col h1 { font-family: var(--serif); font-size: clamp(36px, 4vw, 56px); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: var(--white); margin-bottom: 14px; }
   .contact-info-col h1 em { font-style: italic; color: var(--yellow); }
-  .contact-info-col > p { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.55); margin-bottom: 48px; }
+  .contact-info-col > p { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 520px; }
 
-  .contact-cards { display: flex; flex-direction: column; gap: 16px; }
-  .contact-card {
-    display: flex; align-items: flex-start; gap: 18px;
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 6px; padding: 22px 24px;
-    transition: border-color 0.2s;
-  }
-  .contact-card:hover { border-color: rgba(232,242,42,0.3); }
-  .cc-icon { font-size: 22px; flex-shrink: 0; width: 44px; height: 44px; background: var(--yellow-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-  .cc-body h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
-  .cc-body p { font-size: 15px; color: var(--white); font-weight: 500; line-height: 1.5; }
-  .cc-body a { color: var(--yellow); font-size: 13px; display: block; margin-top: 2px; }
+  .contact-list { border-top: 1px solid rgba(255,255,255,0.1); }
+  .contact-row { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .contact-row dt { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); padding-top: 3px; }
+  .contact-row dd { margin: 0; font-size: 16px; line-height: 1.55; color: var(--white); }
+  .contact-row dd a { color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(232,242,42,0.5); }
+  .contact-row dd a:hover { border-color: var(--yellow); }
+  .contact-row .sub { display: block; font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+  .contact-row .sub a { color: var(--yellow); border: 0; }
 
   /* Contact form col */
   .contact-form-col {
@@ -136,28 +132,18 @@
     text-align: left; line-height: 1.8;
   }
 
-  .hipaa-note {
-    display: flex; align-items: flex-start; gap: 14px;
-    background: rgba(232,242,42,0.05); border: 1px solid rgba(232,242,42,0.15);
-    border-radius: 6px; padding: 18px 20px; margin-top: 24px;
-  }
-  .hipaa-note-icon { font-size: 20px; flex-shrink: 0; }
-  .hipaa-note p { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.5); }
-  .hipaa-note strong { color: rgba(255,255,255,0.8); }
+  .contact-photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; margin-bottom: 36px; }
+  .hipaa-note { margin-top: 24px; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.45); max-width: 520px; }
+  .hipaa-note strong { color: rgba(255,255,255,0.75); }
 
   /* Insurance section */
   .insurance-section { background: var(--warm-gray); color: var(--black); padding: 96px 0; }
   .insurance-section .section-label { color: rgba(0,0,0,0.4); }
   .insurance-section .section-label::before { background: rgba(0,0,0,0.4); }
   .insurance-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 72px; align-items: start; margin-top: 48px; }
-  .insurance-logos { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
-  .ins-card {
-    background: var(--white); border: 1.5px solid rgba(0,0,0,0.08);
-    padding: 16px 22px; border-radius: 6px; font-size: 13px; font-weight: 700;
-    color: var(--black); letter-spacing: 0.04em;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .ins-card:hover { border-color: #6b6b00; transform: translateY(-2px); }
+  .pay-list { list-style: none; padding: 0; margin: 0 0 28px; border-top: 1px solid rgba(0,0,0,0.1); }
+  .pay-list li { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.1); font-size: 15px; line-height: 1.6; color: rgba(0,0,0,0.75); }
+  .pay-list strong { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,0,0,0.45); padding-top: 3px; }
   .ins-note { font-size: 14px; color: rgba(0,0,0,0.55); line-height: 1.75; }
   .ins-note a { color: #5a5a00; text-decoration: underline; }
 
@@ -187,13 +173,11 @@
 
   /* Office photos */
   .office-section { background: var(--black); padding: 96px 0; }
-  .office-section .section-label { color: rgba(255,255,255,0.35); }
-  .office-section .section-label::before { background: rgba(255,255,255,0.35); }
   .office-intro { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.55); max-width: 620px; }
-  .office-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 48px; }
-  .office-grid figure { margin: 0; }
-  .office-grid img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 8px; background: var(--charcoal); }
-  .office-grid figcaption { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 10px; }
+  .office-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 40px; }
+  .office-grid img { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 6px; background: var(--charcoal); }
+  .office-grid .feature { grid-column: span 2; grid-row: span 2; }
+  .office-caption { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 14px; }
 
   @media (max-width: 1024px) {
     .contact-split { grid-template-columns: 1fr; min-height: auto; }
@@ -205,7 +189,10 @@
     .contact-info-col, .contact-form-col { padding: 48px 24px; }
     .form-row { grid-template-columns: 1fr; }
     .office-section { padding: 64px 0; }
-    .office-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 32px; }
+    .office-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 28px; }
+    .office-grid .feature { grid-row: span 1; }
+    .office-grid .feature img { aspect-ratio: 4 / 3; }
+    .contact-row, .pay-list li { grid-template-columns: 1fr; gap: 4px; }
   }
 </style>
 </head>
@@ -228,122 +215,70 @@
 <!-- CONTACT SPLIT -->
 <div class="contact-split">
   <div class="contact-info-col">
-    <span class="section-label fade-up">Get In Touch</span>
-    <h1 class="fade-up delay-1">Let's get you<br><em>the help you need</em></h1>
-    <p class="fade-up delay-2">Have questions before booking? Reach out directly — we're happy to answer questions about services, walk you through the process, or help you figure out if Well-I-AM is the right fit.</p>
-    <div class="contact-cards fade-up delay-3">
-      <div class="contact-card">
-        <div class="cc-icon">📞</div>
-        <div class="cc-body">
-          <h4>Phone</h4>
-          <p>435-703-5616</p>
-          <a href="tel:+14357035616">Call or text us</a>
-          <p style="font-size:11px; color:rgba(0,0,0,0.4); margin-top:6px; margin-bottom:0;"><span lang="es">Se habla español</span></p>
-        </div>
+    <h1 class="fade-up">Questions before you book?</h1>
+    <p class="fade-up delay-1">Call or text and we'll walk you through how visits work, what your insurance covers, and whether Well-I-AM is a good fit.</p>
+    <dl class="contact-list fade-up delay-2">
+      <div class="contact-row">
+        <dt>Phone</dt>
+        <dd><a href="tel:+14357035616">435-703-5616</a><span class="sub">Call or text · <span lang="es">Se habla español</span></span></dd>
       </div>
-      <div class="contact-card">
-        <div class="cc-icon">✉️</div>
-        <div class="cc-body">
-          <h4>Email</h4>
-          <p>lori.jardine@well-i-am.net</p>
-          <a href="mailto:lori.jardine@well-i-am.net">Send a message</a>
-        </div>
+      <div class="contact-row">
+        <dt>Email</dt>
+        <dd><a href="mailto:lori.jardine@well-i-am.net">lori.jardine@well-i-am.net</a></dd>
       </div>
-      <div class="contact-card">
-        <div class="cc-icon">📍</div>
-        <div class="cc-body">
-          <h4>Location</h4>
-          <p>923 S River Road, Suite 204<br>St. George, UT 84790</p>
-          <p style="font-size:13px; color:rgba(255,255,255,0.5); font-weight:400; margin-top:4px;">Inside the Aspire Counseling office · New location as of November 1</p>
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=923+S+River+Road+Suite+204+St.+George+UT+84790" target="_blank" rel="noopener">Get directions</a>
-        </div>
+      <div class="contact-row">
+        <dt>Office</dt>
+        <dd>923 S River Road, Suite 204<br>St. George, UT 84790<span class="sub">Inside the Aspire Counseling office, starting November 1. <a href="https://www.google.com/maps/search/?api=1&amp;query=923+S+River+Road+Suite+204+St.+George+UT+84790" target="_blank" rel="noopener">Get directions</a></span></dd>
       </div>
-      <div class="contact-card">
-        <div class="cc-icon">🕐</div>
-        <div class="cc-body">
-          <h4>Availability</h4>
-          <p>Mon–Thu 6–8 PM · Fri 7 AM–8 PM<br>In-person or telehealth · UT, NV, ID, AZ, MT, WA &amp; TN</p>
-        </div>
+      <div class="contact-row">
+        <dt>Hours</dt>
+        <dd>Mon–Thu 6–8 PM, Fri 7 AM–8 PM<span class="sub">In person, or telehealth in UT, NV, ID, AZ, MT, WA and TN</span></dd>
       </div>
-    </div>
+    </dl>
   </div>
 
   <div class="contact-form-col">
-    <h2 style="font-family:var(--serif); font-size:28px; font-weight:700; color:var(--white); margin-bottom:8px;">Send an inquiry</h2>
-    <p style="font-size:14px; color:rgba(255,255,255,0.45); margin-bottom:36px;">Use the secure SimplePractice form below — all messages go directly into Lori's HIPAA-compliant system. We'll respond within one business day.</p>
-
-    <!--
-      ════════════════════════════════════════════════
-      SIMPLEPRACTICE CONTACT WIDGET GOES HERE
-      Get it from: SimplePractice → Settings →
-      Scheduling and inquiries → Widgets → Copy code
-      Then delete the widget-placeholder div below
-      and paste the SimplePractice code in its place.
-      ════════════════════════════════════════════════
-    -->
+    <img class="contact-photo" src="images/office/office.webp" alt="Lori's office with leather armchairs, a wood desk, a landscape painting and framed diplomas" width="1200" height="1600" decoding="async">
+    <h2 style="font-family:var(--serif); font-size:28px; font-weight:700; color:var(--white); margin-bottom:8px;">Request an appointment</h2>
+    <p style="font-size:15px; line-height:1.7; color:rgba(255,255,255,0.5); margin-bottom:28px;">The request form goes straight into Lori's secure SimplePractice account. We reply within one business day.</p>
 
     <!-- Start SimplePractice Appointment-Request Widget Embed Code -->
     <div class="spwidget-button-wrapper"><a href="https://lori-jardine7465.clientsecure.me" class="spwidget-button" data-spwidget-scope-id="b5065ed0-68f4-4643-9119-0b46f72cb169" data-spwidget-scope-uri="lori-jardine7465" data-spwidget-application-id="7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b" data-spwidget-type="OAR" data-spwidget-scope-global data-spwidget-autobind>Request Appointment</a></div>
     <script src="https://widget-cdn.simplepractice.com/assets/integration-1.0.js"></script>
     <!-- End SimplePractice Appointment-Request Widget Embed Code -->
 
-    <div class="hipaa-note">
-      <div class="hipaa-note-icon">🔒</div>
-      <p><strong>HIPAA-compliant messaging.</strong> All inquiries are handled securely through SimplePractice — your information is never stored on an unprotected server. Do not include sensitive health information in initial inquiries.</p>
-    </div>
+    <p class="hipaa-note"><strong>Please keep it short.</strong> Requests are handled through SimplePractice, which is HIPAA compliant, but leave detailed health information for your first visit.</p>
   </div>
 </div>
 
 <!-- OFFICE -->
 <section class="office-section" id="office">
   <div class="container">
-    <span class="section-label">Our Office</span>
-    <h2 class="section-heading" style="color:var(--white);">A calm place to <em>talk</em></h2>
-    <p class="office-intro">Starting November 1, in-person visits are at 923 S River Road, Suite 204 in St. George, inside the Aspire Counseling office.</p>
+    <h2 class="section-heading" style="color:var(--white);">Where you'll meet Lori</h2>
+    <p class="office-intro">Starting November 1, in-person visits are at 923 S River Road, Suite 204 in St. George. Lori shares the office with Aspire Counseling.</p>
     <div class="office-grid">
-      <figure>
-        <img src="images/office/waiting-room.webp" alt="Waiting room with black tufted chairs, a cushioned bench, abstract wall art and a large wall clock" width="1200" height="1600" loading="lazy" decoding="async">
-        <figcaption>Waiting room</figcaption>
-      </figure>
-      <figure>
-        <img src="images/office/waiting-room-seating.webp" alt="Waiting room seating with a cream bench, black chairs and two framed abstract paintings" width="1200" height="1600" loading="lazy" decoding="async">
-        <figcaption>Waiting room</figcaption>
-      </figure>
-      <figure>
-        <img src="images/office/waiting-room-console.webp" alt="Gray console table with vases and greenery under a large Roman-numeral wall clock" width="1200" height="1600" loading="lazy" decoding="async">
-        <figcaption>Waiting room</figcaption>
-      </figure>
-      <figure>
-        <img src="images/office/office.webp" alt="Lori's office with leather armchairs, a wood desk, a landscape painting and framed diplomas" width="1200" height="1600" loading="lazy" decoding="async">
-        <figcaption>Lori's office</figcaption>
-      </figure>
-      <figure>
-        <img src="images/office/office-sideboard.webp" alt="Wood sideboard with two woven table lamps under a painting of a donkey" width="1200" height="1600" loading="lazy" decoding="async">
-        <figcaption>Lori's office</figcaption>
-      </figure>
-      <figure>
-        <img src="images/office/office-seating.webp" alt="Two tan leather armchairs with pillows beside a small round table under a wall clock" width="1200" height="1600" loading="lazy" decoding="async">
-        <figcaption>Lori's office</figcaption>
-      </figure>
+      <div class="feature"><img src="images/office/waiting-room.webp" alt="Waiting room with black tufted chairs, a cushioned bench, abstract wall art and a large wall clock" width="1200" height="1600" loading="lazy" decoding="async"></div>
+      <div><img src="images/office/office-seating.webp" alt="Two tan leather armchairs with pillows beside a small round table under a wall clock" width="1200" height="1600" loading="lazy" decoding="async"></div>
+      <div><img src="images/office/office-sideboard.webp" alt="Wood sideboard with two woven table lamps under a painting of a donkey" width="1200" height="1600" loading="lazy" decoding="async"></div>
+      <div><img src="images/office/waiting-room-seating.webp" alt="Waiting room seating with a cream bench, black chairs and two framed abstract paintings" width="1200" height="1600" loading="lazy" decoding="async"></div>
+      <div><img src="images/office/waiting-room-console.webp" alt="Gray console table with vases and greenery under a large Roman-numeral wall clock" width="1200" height="1600" loading="lazy" decoding="async"></div>
     </div>
+    <p class="office-caption">The waiting room and Lori's office, Suite 204.</p>
   </div>
 </section>
 
 <!-- INSURANCE -->
 <section class="insurance-section" id="insurance">
   <div class="container">
-    <span class="section-label">Fees &amp; Payment</span>
-    <h2 class="section-heading" style="color:var(--black);">Simple, transparent <em style="color:#5a5a00">pricing</em></h2>
+    <h2 class="section-heading" style="color:var(--black);">Insurance and self-pay rates</h2>
     <div class="insurance-grid">
       <div>
-        <p style="font-size:16px; line-height:1.75; color:rgba(0,0,0,0.6); margin-bottom:28px;">Well-I-AM accepts <strong>Aetna, UHC, Optum, Cigna Behavioral Health via Evernorth, Imperial Health Plan, SelectHealth, and University of Utah Health Plans</strong>. Self-pay rates are also available — intentionally affordable, and HSA/FSA cards are accepted.</p>
-        <div class="insurance-logos">
-          <div class="ins-card" style="background:#fffbe6; border-color:#d4c800;">✅ Aetna, UHC, Optum, Cigna Behavioral Health via Evernorth, Imperial Health Plan, SelectHealth, &amp; University of Utah Health Plans Accepted</div>
-          <div class="ins-card" style="background:#fff; border-style:dashed; border-color:#c9b000;">🗓️ Molina — accepted beginning November 2026</div>
-          <div class="ins-card" style="background:#fffbe6; border-color:#d4c800;">💳 All major credit cards</div>
-          <div class="ins-card" style="background:#fffbe6; border-color:#d4c800;">🏦 HSA / FSA cards</div>
-        </div>
-        <p class="ins-note">Have questions about rates or sliding-scale availability? <a href="tel:+14357035616">Give us a call</a> — we'll always be upfront about costs before your first appointment.</p>
+        <ul class="pay-list">
+          <li><strong>Insurance</strong><span>Aetna, UHC, Optum, Cigna Behavioral Health via Evernorth, Imperial Health Plan, SelectHealth, and University of Utah Health Plans</span></li>
+          <li><strong>Molina</strong><span>Accepted starting November 2026</span></li>
+          <li><strong>Payment</strong><span>All major credit cards, HSA and FSA cards, and cash</span></li>
+        </ul>
+        <p class="ins-note">Questions about rates or a sliding scale? <a href="tel:+14357035616">Give us a call</a>. You'll know what a visit costs before your first appointment.</p>
       </div>
       <div class="fees-box">
         <h3 class="fees-title">Self-Pay Rates</h3>
@@ -356,10 +291,10 @@
           <span class="fee-price">$129</span>
         </div>
         <div class="fee-item">
-          <span class="fee-name">Telehealth (all visit types)</span>
-          <span class="fee-price">Same</span>
+          <span class="fee-name">Telehealth visits</span>
+          <span class="fee-price">Same rates</span>
         </div>
-        <p class="fee-note">Payment is due at time of service. We accept all major credit cards, HSA/FSA cards, and cash. A sliding scale may be available — ask us about it.</p>
+        <p class="fee-note">Payment is due at time of service. We accept all major credit cards, HSA/FSA cards, and cash. A sliding scale may be available, so ask.</p>
       </div>
     </div>
   </div>
@@ -368,8 +303,7 @@
 <!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="container">
-    <span class="section-label light">Common Questions</span>
-    <h2 class="section-heading">Frequently asked<br><em>questions</em></h2>
+    <h2 class="section-heading">Common questions</h2>
     <div class="faq-grid">
       <div class="faq-item">
         <h3 class="faq-q">Are you accepting new patients?</h3>
@@ -381,11 +315,11 @@
       </div>
       <div class="faq-item">
         <h3 class="faq-q">What's the difference between a PMHNP and a psychiatrist?</h3>
-        <p class="faq-a">A Psychiatric Mental Health Nurse Practitioner holds an advanced practice nursing degree with specialized psychiatric training. PMHNPs can independently diagnose mental health conditions and prescribe medications — covering the same essential functions as a psychiatrist for the vast majority of patients, often with shorter wait times and more personal attention. The key distinction: psychiatrists hold a medical doctorate (MD or DO) and are uniquely qualified to perform official diagnostic evaluations required for disability determinations, specialized programs, and certain legal or institutional assessments. If you need that level of documentation, we’ll let you know upfront and connect you with the right resource.</p>
+        <p class="faq-a">A Psychiatric Mental Health Nurse Practitioner holds an advanced practice nursing degree with specialized psychiatric training. PMHNPs can independently diagnose mental health conditions and prescribe medications, covering the same essential functions as a psychiatrist for the vast majority of patients, often with shorter wait times and more personal attention. The key distinction: psychiatrists hold a medical doctorate (MD or DO) and are uniquely qualified to perform official diagnostic evaluations required for disability determinations, specialized programs, and certain legal or institutional assessments. If you need that level of documentation, we’ll let you know upfront and connect you with the right resource.</p>
       </div>
       <div class="faq-item">
         <h3 class="faq-q">Do you provide therapy?</h3>
-        <p class="faq-a">Well-I-AM focuses specifically on psychiatric medication management — not talk therapy. We strongly encourage clients to have a therapist as part of their care team and can provide referrals to excellent therapists in the area.</p>
+        <p class="faq-a">Well-I-AM focuses specifically on psychiatric medication management, not talk therapy. We strongly encourage clients to have a therapist as part of their care team and can provide referrals to excellent therapists in the area.</p>
       </div>
       <div class="faq-item">
         <h3 class="faq-q">How does telehealth work?</h3>
@@ -393,15 +327,15 @@
       </div>
       <div class="faq-item">
         <h3 class="faq-q">What should I bring to my first appointment?</h3>
-        <p class="faq-a">A list of your current medications (including supplements), any prior psychiatric records if available, and — most importantly — a willingness to talk openly. That's all you need.</p>
+        <p class="faq-a">A list of your current medications (including supplements), any prior psychiatric records if available, and most importantly, a willingness to talk openly. That's all you need.</p>
       </div>
       <div class="faq-item">
         <h3 class="faq-q">What is your cancellation policy?</h3>
-        <p class="faq-a">We ask for 24 hours notice for cancellations or rescheduling. Late cancellations and no-shows may be subject to a fee. We understand life happens — reach out as soon as possible if you need to change your appointment.</p>
+        <p class="faq-a">We ask for 24 hours notice for cancellations or rescheduling. Late cancellations and no-shows may be subject to a fee. We understand life happens, so reach out as soon as possible if you need to change your appointment.</p>
       </div>
       <div class="faq-item">
         <h3 class="faq-q">Can you prescribe controlled substances via telehealth?</h3>
-        <p class="faq-a">Yes — federal telehealth prescribing flexibilities allow us to prescribe controlled substances (such as stimulants for ADHD) via video. An in-person visit may occasionally be required depending on your specific situation.</p>
+        <p class="faq-a">Yes. Federal telehealth prescribing flexibilities allow us to prescribe controlled substances (such as stimulants for ADHD) via video. An in-person visit may occasionally be required depending on your specific situation.</p>
       </div>
     </div>
   </div>
@@ -409,10 +343,10 @@
 
 <!-- CTA -->
 <section class="cta-banner">
-  <div class="cta-banner-text">Still have questions?<br><em>We're happy to talk.</em></div>
+  <div class="cta-banner-text">Still have a question?<br>Call or text us.</div>
   <div class="cta-actions">
     <a href="tel:+14357035616" class="btn btn-dark">Call 435-703-5616</a>
-    <p class="cta-note">Or <a href="appointments" style="color:rgba(0,0,0,0.6);">book online</a> — Aetna, UHC, Optum, Cigna Behavioral Health via Evernorth, Imperial Health Plan, SelectHealth, &amp; University of Utah Health Plans accepted · self-pay rates available</p>
+    <p class="cta-note">Or <a href="appointments" style="color:rgba(0,0,0,0.6);">book online</a>. Aetna, UHC, Optum, Cigna Behavioral Health via Evernorth, Imperial Health Plan, SelectHealth, &amp; University of Utah Health Plans accepted · self-pay rates available</p>
   </div>
 </section>
 
@@ -495,27 +429,5 @@
   }
 </script>
 
-<!-- INSURANCE ANNOUNCEMENT BANNER -->
-<div class="ins-banner" id="insBanner" role="region" aria-label="Accepted insurance notice">
-  <span class="ins-banner-pulse" aria-hidden="true"></span>
-  <p class="ins-banner-text"><span class="ins-banner-label">Now Accepting</span>Aetna · UHC · Optum · Cigna · Imperial Health Plan · <strong>SelectHealth</strong> · <strong>University of Utah Health Plans</strong></p>
-  <a href="appointments" class="ins-banner-cta">Book</a>
-  <button class="ins-banner-close" id="insBannerClose" type="button" aria-label="Dismiss insurance notice">&times;</button>
-</div>
-<script>
-(function () {
-  var b = document.getElementById('insBanner');
-  if (!b) return;
-  var KEY = 'wia_ins_banner_v1';
-  try { if (localStorage.getItem(KEY)) { b.parentNode.removeChild(b); return; } } catch (e) {}
-  setTimeout(function () { b.classList.add('is-visible'); }, 900);
-  var c = document.getElementById('insBannerClose');
-  if (c) c.addEventListener('click', function () {
-    b.classList.remove('is-visible');
-    try { localStorage.setItem(KEY, '1'); } catch (e) {}
-    setTimeout(function () { if (b.parentNode) b.parentNode.removeChild(b); }, 500);
-  });
-})();
-</script>
 </body>
 </html>
